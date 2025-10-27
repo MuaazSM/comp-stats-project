@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-10-27T20:48:48.348638",
+  "n_clusters": 3,
+  "n_features": 14,
+  "feature_names": [
+    "total_establishments",
+    "total_workers",
+    "avg_workers_per_est",
+    "pct_primary",
+    "pct_secondary",
+    "pct_tertiary",
+    "pct_govt",
+    "pct_private",
+    "pct_cooperative",
+    "pct_permanent",
+    "pct_temporary",
+    "pct_self_financed",
+    "pct_assisted",
+    "pct_female"
+  ],
+  "data_split": {
+    "train_size": 98,
+    "val_size": 15,
+    "test_size": 29,
+    "test_ratio": 0.2,
+    "val_ratio": 0.1
+  },
+  "metrics": {
+    "train": {
+      "silhouette_score": 0.3109051630666657,
+      "davies_bouldin_score": 1.1380528734914788
+    },
+    "validation": {
+      "silhouette_score": 0.29549743123815847,
+      "davies_bouldin_score": 0.924831137681823
+    },
+    "test": {
+      "silhouette_score": 0.22320406584934618,
+      "davies_bouldin_score": 1.1869751244749638
+    }
+  },
+  "evaluation": {
+    "best_k_by_silhouette": 2,
+    "best_silhouette_score": 0.6554739800941375,
+    "k_range_evaluated": "2-10"
+  },
+  "model_path": "models/model_k3.pkl",
+  "scaler_path": "models/scaler_k3.pkl"
+}
