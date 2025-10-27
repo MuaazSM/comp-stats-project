@@ -1,8 +1,3 @@
-"""
-training script for mumbai ward clustering model
-includes train/test/validation split and model evaluation
-"""
-
 import pandas as pd
 import numpy as np
 import os

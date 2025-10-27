@@ -1,7 +1,3 @@
-"""
-feature engineering and preprocessing for ward-level clustering
-"""
-
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler

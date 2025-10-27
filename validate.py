@@ -1,8 +1,3 @@
-"""
-validation script for saved clustering models
-loads a trained model and evaluates it on the test set
-"""
-
 import pandas as pd
 import numpy as np
 import json
