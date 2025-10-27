@@ -5,7 +5,9 @@ models/*.json
 !models/.gitkeep
 
 # Streamlit
-.streamlit/
+# allow committing config for cloud deployment
+!/.streamlit/config.toml
+/.streamlit/
 
 # VSCode
 .vscode/

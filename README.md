@@ -124,6 +124,29 @@ the app will open in your browser at `http://localhost:8501`
 - real-time visualizations
 - export results as CSV
 
+## Deploy to Streamlit Cloud
+
+you can deploy this repo to streamlit community cloud in a few clicks:
+
+1. push this project to a github repo (public or private)
+2. go to https://streamlit.io/cloud and click "new app"
+3. select your repo, branch `main`, and app file path `app.py`
+4. ensure these files exist in the repo:
+  - `requirements.txt` (python dependencies)
+  - `runtime.txt` (python version, set to `3.10`)
+  - `.streamlit/config.toml` (ui theme/config – already included)
+5. click deploy
+
+notes:
+- data file should be committed at `data/mumbai-suburban.csv` (small enough for git; avoid LFS)
+- models saved at runtime are ephemeral in the cloud; use the "use pre-trained model" option if you commit any model files to the repo (currently ignored by `.gitignore`)
+- if you see module errors, confirm `requirements.txt` is up to date in the repo
+- if you need secrets (not required here), add them via streamlit cloud app settings (not in git)
+
+optional performance tips:
+- first load uses caching (`st.cache_data`) and may take a few seconds
+- reduce `max_k_eval` in the sidebar to speed up evaluation
+
 ## Data features
 
 the analysis computes these ward-level features:
