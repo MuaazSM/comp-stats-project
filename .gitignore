@@ -1,3 +1,23 @@
+# comp-stats-project custom ignores
+models/*.csv
+models/*.pkl
+models/*.json
+!models/.gitkeep
+
+# Streamlit
+.streamlit/
+
+# VSCode
+.vscode/
+
+# Data
+*.csv
+*.tsv
+
+# Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
