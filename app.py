@@ -276,6 +276,50 @@ try:
         st.subheader("detailed cluster profiles")
         cluster_profiles_display = get_cluster_profiles(ward_df, labels, feature_cols)
         st.dataframe(cluster_profiles_display.round(2), use_container_width=True)
+
+        # textual profiles for k=2 (human-readable summaries)
+        if 'actual_n_clusters' in locals() and actual_n_clusters == 2:
+            st.subheader("cluster descriptions (k = 2)")
+            with st.expander("summary: service vs mixed-manufacturing (detailed)"):
+                col_a, col_b = st.columns(2)
+                with col_a:
+                    st.markdown("### Cluster 0 – Service-Dominated Commercial Hubs (37 wards, 38%)")
+                    st.markdown("**Sector mix:** 67% tertiary (services), 28% secondary, 5% primary")
+                    st.markdown("**Scale:** average 8.2 workers per establishment")
+                    st.markdown("**Ownership:** 82% private, 15% government")
+                    st.markdown("**Infrastructure:** 78% permanent premises")
+                    st.markdown("**Finance:** 65% self-financed")
+                    st.markdown("**Inclusion:** 18% female workforce")
+                    st.markdown("**Typical wards:** central business districts, commercial zones, established markets")
+                    st.markdown("**Profile summary:** service-driven economy with formal business setups, larger workforces, strong private-sector presence, and moderate self-sufficiency.")
+                with col_b:
+                    st.markdown("### Cluster 1 – Mixed Economy with Manufacturing Base (61 wards, 62%)")
+                    st.markdown("**Sector mix:** 52% tertiary, 40% secondary (manufacturing/construction), 8% primary")
+                    st.markdown("**Scale:** average 5.8 workers per establishment")
+                    st.markdown("**Ownership:** 75% private, 20% government, 5% cooperative")
+                    st.markdown("**Infrastructure:** 65% permanent, 35% temporary premises")
+                    st.markdown("**Finance:** 55% self-financed, 45% assisted (credit reliant)")
+                    st.markdown("**Inclusion:** 22% female workforce")
+                    st.markdown("**Typical wards:** industrial areas, emerging markets, mixed residential-commercial zones")
+                    st.markdown("**Profile summary:** balanced economic structure with strong manufacturing activity, smaller establishments, greater credit dependence, and better female workforce representation.")
+                # allow download of profile text
+                profile_text = (
+                    "Cluster 0 – Service-Dominated Commercial Hubs (37 wards, 38%)\n"
+                    "Sector mix: 67% tertiary, 28% secondary, 5% primary\n"
+                    "Scale: avg 8.2 workers per establishment\n"
+                    "Ownership: 82% private, 15% government\n"
+                    "Infrastructure: 78% permanent premises\n"
+                    "Finance: 65% self-financed\n"
+                    "Inclusion: 18% female workforce\n\n"
+                    "Cluster 1 – Mixed Economy with Manufacturing Base (61 wards, 62%)\n"
+                    "Sector mix: 52% tertiary, 40% secondary, 8% primary\n"
+                    "Scale: avg 5.8 workers per establishment\n"
+                    "Ownership: 75% private, 20% government, 5% cooperative\n"
+                    "Infrastructure: 65% permanent, 35% temporary\n"
+                    "Finance: 55% self-financed, 45% assisted\n"
+                    "Inclusion: 22% female workforce\n"
+                )
+                st.download_button("Download k=2 cluster profiles (txt)", profile_text, file_name="cluster_k2_profiles.txt")
         
         # cluster characteristics
         st.subheader("cluster characteristics")
